@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Οδοντιατρείο Μαρία Στυλιανού | Σύγχρονη Οδοντιατρική στην Άνοιξη Αττικής</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --primary:#0a4da2;
+  --primary-light:#1a6dd4;
+  --primary-dark:#083a7a;
+  --accent:#c9a84c;
+  --accent-light:#dfc47a;
+  --bg:#f8fafb;
+  --bg-alt:#eef2f7;
+  --text:#1a1e2e;
+  --text-light:#5a6178;
+  --white:#ffffff;
+  --shadow:0 8px 32px rgba(10,77,162,0.08);
+  --shadow-lg:0 20px 60px rgba(10,77,162,0.12);
+  --radius:16px;
+  --radius-lg:24px;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 40px;
+  height:72px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 1px 0 rgba(0,0,0,0.06);
+  border-bottom:1px solid rgba(10,77,162,0.06);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-icon{
+  width:40px;
+  height:40px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-light));
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:20px;
+  font-weight:700;
+}
+
+.logo-text{
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  font-weight:700;
+  color:var(--primary-dark);
+  letter-spacing:-0.3px;
+}
+
+.logo-sub{
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  color:var(--text-light);
+  font-weight:500;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
+
+nav{display:flex;gap:4px;align-items:center}
+
+nav button{
+  padding:9px 18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:transparent;
+  color:var(--text-light);
+  font-weight:500;
+  font-size:14px;
+  font-family:'Inter',sans-serif;
+  transition:all 0.25s ease;
+  position:relative;
+}
+
+nav button:hover{
+  background:var(--bg-alt);
+  color:var(--primary);
+}
+
+nav button.active-nav{
+  background:var(--primary);
+  color:white;
+}
+
+/* SECTIONS */
+.section{
+  display:none;
+  padding:0;
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.active{
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+}
+
+.section-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:60px 40px 80px;
+}
+
+/* SECTION HEADERS */
+.section-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-header h2{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:12px;
+  letter-spacing:-0.5px;
+}
+
+.section-header .divider{
+  width:60px;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-light));
+  margin:0 auto 16px;
+  border-radius:2px;
+}
+
+.section-header p{
+  font-size:17px;
+  color:var(--text-light);
+  max-width:560px;
+  margin:0 auto;
+  line-height:1.7;
+}
+
+/* HERO SECTION */
+.hero-wrapper{
+  min-height:calc(100vh - 72px);
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,#f0f5ff 0%,#e8eef8 50%,#f8fafb 100%);
+  z-index:0;
+}
+
+.hero-bg::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  right:-20%;
+  width:800px;
+  height:800px;
+  background:radial-gradient(circle,rgba(10,77,162,0.04) 0%,transparent 70%);
+  border-radius:50%;
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  padding:60px 40px;
+  position:relative;
+  z-index:1;
+}
+
+.hero-content h1{
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+  font-weight:700;
+  line-height:1.15;
+  margin-bottom:20px;
+  color:var(--text);
+  letter-spacing:-1px;
+}
+
+.hero-content h1 span{
+  background:linear-gradient(135deg,var(--primary),var(--primary-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-content p{
+  font-size:18px;
+  line-height:1.8;
+  color:var(--text-light);
+  margin-bottom:32px;
+  max-width:480px;
+}
+
+.hero-badges{
+  display:flex;
+  gap:12px;
+  margin-bottom:32px;
+  flex-wrap:wrap;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  background:rgba(10,77,162,0.06);
+  border-radius:20px;
+  font-size:13px;
+  font-weight:500;
+  color:var(--primary);
+}
+
+.hero-img-wrapper{
+  position:relative;
+}
+
+.hero-img-wrapper img{
+  width:100%;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  object-fit:cover;
+  aspect-ratio:4/3;
+}
+
+.hero-img-wrapper::after{
+  content:'';
+  position:absolute;
+  inset:-8px;
+  border:2px solid rgba(10,77,162,0.08);
+  border-radius:calc(var(--radius-lg) + 8px);
+  pointer-events:none;
+}
+
+.hero-stats{
+  display:flex;
+  gap:40px;
+  margin-top:40px;
+  padding-top:32px;
+  border-top:1px solid rgba(0,0,0,0.06);
+}
+
+.hero-stat{
+  text-align:left;
+}
+
+.hero-stat .num{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  font-weight:700;
+  color:var(--primary);
+}
+
+.hero-stat .label{
+  font-size:13px;
+  color:var(--text-light);
+  margin-top:2px;
+}
+
+/* FEATURES ROW */
+.features-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  max-width:1200px;
+  margin:-40px auto 0;
+  padding:0 40px;
+  position:relative;
+  z-index:2;
+}
+
+.feature-card{
+  background:var(--white);
+  padding:32px 28px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  text-align:center;
+  transition:all 0.3s ease;
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+.feature-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+
+.feature-icon{
+  width:56px;
+  height:56px;
+  background:linear-gradient(135deg,rgba(10,77,162,0.08),rgba(10,77,162,0.04));
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 16px;
+  font-size:24px;
+}
+
+.feature-card h3{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:8px;
+  color:var(--text);
+}
+
+.feature-card p{
+  font-size:14px;
+  color:var(--text-light);
+  line-height:1.6;
+}
+
+/* SECOND HERO SECTIONS */
+.hero-alt{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  padding:80px 40px;
+}
+
+.hero-alt.reverse{direction:rtl}
+.hero-alt.reverse > *{direction:ltr}
+
+.hero-alt-content h2{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  font-weight:700;
+  line-height:1.2;
+  margin-bottom:16px;
+  color:var(--text);
+  letter-spacing:-0.5px;
+}
+
+.hero-alt-content p{
+  font-size:17px;
+  line-height:1.8;
+  color:var(--text-light);
+  margin-bottom:24px;
+}
+
+.hero-alt img{
+  width:100%;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+  object-fit:cover;
+  aspect-ratio:4/3;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-light));
+  color:var(--white);
+  padding:14px 28px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  font-family:'Inter',sans-serif;
+  transition:all 0.3s ease;
+  box-shadow:0 4px 15px rgba(10,77,162,0.25);
+  border:none;
+  cursor:pointer;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(10,77,162,0.3);
+}
+
+.btn-outline{
+  background:transparent;
+  color:var(--primary);
+  border:2px solid var(--primary);
+  box-shadow:none;
+  padding:12px 26px;
+}
+
+.btn-outline:hover{
+  background:var(--primary);
+  color:white;
+  box-shadow:0 4px 15px rgba(10,77,162,0.25);
+}
+
+.btn-group{display:flex;gap:12px;flex-wrap:wrap}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+/* ABOUT SECTION */
+.about-layout{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-img{
+  position:relative;
+}
+
+.about-img img{
+  width:100%;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  object-fit:cover;
+  aspect-ratio:3/4;
+}
+
+.about-img::before{
+  content:'';
+  position:absolute;
+  top:20px;
+  left:-20px;
+  right:20px;
+  bottom:-20px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-light));
+  border-radius:var(--radius-lg);
+  opacity:0.08;
+  z-index:-1;
+}
+
+.about-content h3{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:8px;
+  color:var(--text);
+}
+
+.about-content .subtitle{
+  font-size:15px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:20px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.about-content p{
+  font-size:16px;
+  line-height:1.8;
+  color:var(--text-light);
+  margin-bottom:16px;
+}
+
+.about-values{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:28px;
+}
+
+.about-value{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  background:var(--bg-alt);
+  border-radius:12px;
+  font-size:14px;
+  font-weight:500;
+  color:var(--text);
+}
+
+.about-value-icon{
+  width:36px;
+  height:36px;
+  background:linear-gradient(135deg,rgba(10,77,162,0.1),rgba(10,77,162,0.05));
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  flex-shrink:0;
+}
+
+/* SERVICE CARDS */
+.service-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:all 0.35s ease;
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+}
+
+.service-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:transform 0.5s ease;
+}
+
+.service-card:hover img{
+  transform:scale(1.05);
+}
+
+.service-card-body{
+  padding:20px;
+}
+
+.service-card h3{
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:6px;
+  color:var(--text);
+}
+
+.service-card .service-tag{
+  display:inline-block;
+  padding:3px 10px;
+  background:rgba(10,77,162,0.06);
+  border-radius:6px;
+  font-size:12px;
+  color:var(--primary);
+  font-weight:500;
+  margin-bottom:8px;
+}
+
+.service-text{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:all 0.4s ease;
+  font-size:14px;
+  color:var(--text-light);
+  line-height:1.7;
+}
+
+.service-card.active .service-text{
+  max-height:220px;
+  opacity:1;
+  margin-top:10px;
+}
+
+.service-card .expand-hint{
+  font-size:12px;
+  color:var(--text-light);
+  opacity:0.6;
+  margin-top:8px;
+  transition:opacity 0.3s;
+}
+
+.service-card.active .expand-hint{opacity:0;height:0;margin:0}
+
+.img-overflow{overflow:hidden;border-radius:var(--radius) var(--radius) 0 0}
+
+/* EQUIPMENT CARDS */
+.equip-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:all 0.35s ease;
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+.equip-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+}
+
+.equip-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.equip-card-body{
+  padding:24px;
+}
+
+.equip-card h3{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:4px;
+  color:var(--text);
+}
+
+.equip-card .equip-label{
+  display:inline-block;
+  padding:3px 10px;
+  background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.06));
+  border-radius:6px;
+  font-size:12px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.equip-card p{
+  font-size:14px;
+  color:var(--text-light);
+  line-height:1.7;
+}
+
+/* CONTACT */
+.contact-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+
+.contact-info{
+  background:var(--white);
+  padding:40px;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+.contact-info h3{
+  font-family:'Playfair Display',serif;
+  font-size:24px;
+  margin-bottom:24px;
+  color:var(--text);
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+}
+
+.contact-item:last-of-type{border-bottom:none}
+
+.contact-icon{
+  width:48px;
+  height:48px;
+  background:linear-gradient(135deg,rgba(10,77,162,0.08),rgba(10,77,162,0.04));
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  flex-shrink:0;
+}
+
+.contact-item-text .contact-label{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.8px;
+  color:var(--text-light);
+  font-weight:500;
+  margin-bottom:2px;
+}
+
+.contact-item-text .contact-value{
+  font-size:16px;
+  font-weight:600;
+  color:var(--text);
+}
+
+.contact-map{
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(0,0,0,0.04);
+  height:100%;
+  min-height:400px;
+  display:flex;
+  flex-direction:column;
+}
+
+.contact-map iframe{
+  width:100%;
+  flex:1;
+  border:none;
+  min-height:300px;
+}
+
+.contact-map-footer{
+  padding:20px 24px;
+  text-align:center;
+}
+
+/* FLOATING CTA */
+.call-float{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-light));
+  color:var(--white);
+  padding:16px 24px;
+  border-radius:50px;
+  font-weight:600;
+  font-size:15px;
+  font-family:'Inter',sans-serif;
+  text-decoration:none;
+  box-shadow:0 8px 30px rgba(10,77,162,0.35);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  z-index:50;
+  transition:all 0.3s ease;
+}
+
+.call-float:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(10,77,162,0.4);
+}
+
+/* FOOTER */
+footer{
+  background:var(--text);
+  color:rgba(255,255,255,0.6);
+  text-align:center;
+  padding:32px 40px;
+  font-size:14px;
+}
+
+footer a{color:var(--accent-light);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  header{padding:0 20px}
+  nav{gap:2px}
+  nav button{padding:8px 10px;font-size:12px}
+  .logo-text{font-size:15px}
+  .logo-sub{display:none}
+
+  .hero{grid-template-columns:1fr;gap:32px;padding:40px 24px}
+  .hero-content h1{font-size:36px}
+  .hero-stats{gap:24px}
+  .hero-stat .num{font-size:24px}
+
+  .features-row{grid-template-columns:1fr;margin-top:20px;padding:0 24px}
+  .hero-alt{grid-template-columns:1fr;gap:32px;padding:40px 24px}
+  .hero-alt.reverse{direction:ltr}
+  .hero-alt-content h2{font-size:28px}
+
+  .section-inner{padding:40px 24px 60px}
+  .section-header h2{font-size:32px}
+
+  .about-layout{grid-template-columns:1fr;gap:32px}
+  .about-values{grid-template-columns:1fr}
+
+  .contact-layout{grid-template-columns:1fr}
+
+  .grid,.grid-3{grid-template-columns:1fr}
+}
+
+@media(max-width:600px){
+  nav{flex-wrap:wrap;justify-content:center;gap:4px}
+  header{height:auto;padding:12px 16px;flex-direction:column;gap:10px}
+  .hero-content h1{font-size:28px}
+  .hero-badges{gap:8px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">🦷</div>
+    <div>
+      <div class="logo-text">Μαρία Στυλιανού</div>
+      <div class="logo-sub">Οδοντιατρείο</div>
+    </div>
+  </div>
+
+  <nav>
+    <button class="active-nav" onclick="showPage('home',this)">Αρχική</button>
+    <button onclick="showPage('about',this)">Ποιοι Είμαστε</button>
+    <button onclick="showPage('services',this)">Υπηρεσίες</button>
+    <button onclick="showPage('equipment',this)">Εξοπλισμός</button>
+    <button onclick="showPage('contact',this)">Επικοινωνία</button>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="section active">
+
+  <!-- Hero Main -->
+  <div class="hero-wrapper">
+    <div class="hero-bg"></div>
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badges">
+          <span class="hero-badge">&#x2713; Σύγχρονος Εξοπλισμός</span>
+          <span class="hero-badge">&#x2713; Ανώδυνες Θεραπείες</span>
+        </div>
+        <h1>Χαμόγελα με <span>υγεία &amp; αισθητική</span></h1>
+        <p>Σύγχρονη οδοντιατρική με φυσικό και ανώδυνο αποτέλεσμα. Εξειδικευμένες υπηρεσίες με ψηφιακή τεχνολογία αιχμής στην Άνοιξη Αττικής.</p>
+        <div class="btn-group">
+          <a class="btn" href="tel:2108140943">Κλείστε Ραντεβού</a>
+          <a class="btn btn-outline" onclick="showPage('services')">Υπηρεσίες</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">15+</div>
+            <div class="label">Χρόνια Εμπειρίας</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">3000+</div>
+            <div class="label">Χαρούμενοι Ασθενείς</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">9+</div>
+            <div class="label">Εξειδικευμένες Υπηρεσίες</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80" alt="Σύγχρονο οδοντιατρείο">
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Row -->
+  <div class="features-row">
+    <div class="feature-card">
+      <div class="feature-icon">&#x1F3AF;</div>
+      <h3>Ψηφιακή Ακρίβεια</h3>
+      <p>Σύγχρονες τεχνολογίες 3D σάρωσης και εκτύπωσης για τέλεια αποτελέσματα.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#x1F49A;</div>
+      <h3>Ανώδυνες Θεραπείες</h3>
+      <p>Laser θεραπείες και τεχνικές χωρίς πόνο για μέγιστη άνεση του ασθενή.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#x2728;</div>
+      <h3>Αισθητική Αριστεία</h3>
+      <p>Εξατομικευμένες λύσεις για ένα φυσικό και λαμπερό χαμόγελο.</p>
+    </div>
+  </div>
+
+  <!-- Hero Alt 1 -->
+  <div class="hero-alt" style="margin-top:40px">
+    <div class="hero-alt-content">
+      <h2>Ψηφιακή ακρίβεια σε κάθε θεραπεία</h2>
+      <p>Παρέχουμε ολοκληρωμένες οδοντιατρικές υπηρεσίες με σύγχρονο εξοπλισμό και εξατομικευμένη φροντίδα για κάθε ασθενή. Η τεχνολογία αιχμής εξασφαλίζει αποτελέσματα υψηλής ακρίβειας.</p>
+      <a class="btn" href="tel:2108140943">Μάθετε Περισσότερα</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80" alt="Ψηφιακή οδοντιατρική">
+  </div>
+
+  <!-- Hero Alt 2 -->
+  <div class="hero-alt reverse">
+    <div class="hero-alt-content">
+      <h2>Ανώδυνες θεραπείες χωρίς άγχος</h2>
+      <p>Κλείστε το ραντεβού σας σήμερα και χαρίστε στο χαμόγελό σας τη φροντίδα που του αξίζει. Επισκεφθείτε μας ή επικοινωνήστε μαζί μας για πληροφορίες.</p>
+      <a class="btn" href="tel:2108140943">Κλείσε Τώρα</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80" alt="Ανώδυνες θεραπείες">
+  </div>
+
+  <!-- Hero Alt 3 -->
+  <div class="hero-alt">
+    <div class="hero-alt-content">
+      <h2>Το χαμόγελο που αξίζεις</h2>
+      <p>Αισθητική οδοντιατρική υψηλού επιπέδου στην Άνοιξη Αττικής. Σύγχρονες τεχνικές λεύκανσης, όψεων και αποκατάστασης για ένα εκθαμβωτικό χαμόγελο.</p>
+      <a class="btn" href="tel:2108140943">Κλείσε Ραντεβού</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="Αισθητική οδοντιατρική">
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Ποιοι Είμαστε</h2>
+      <div class="divider"></div>
+      <p>Γνωρίστε την ομάδα πίσω από το χαμόγελό σας</p>
+    </div>
+
+    <div class="about-layout">
+      <div class="about-img">
+        <img src="https://scontent.fath2-1.fna.fbcdn.net/v/t39.30808-6/641584630_10164508155004287_5786745639315962114_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=evNiVzCGtPcQ7kNvwHkAv2R&_nc_oc=AdocHfcBeo-WU2K1tdnMTvbvwI_OZBXrfheIM4fcMuLAlvWLGq65ALCNE96yLmCIp7g&_nc_zt=23&_nc_ht=scontent.fath2-1.fna&_nc_gid=t0xKtGKCjqD0TT26LoJQyg&_nc_ss=7a389&oh=00_Af0axpSup58FaNlQX87NhhbEZ4DSd_4t7NRjikwl6vi79Q&oe=69DD5760" alt="Μαρία Στυλιανού - Οδοντίατρος">
+      </div>
+      <div class="about-content">
+        <div class="subtitle">Οδοντίατρος</div>
+        <h3>Μαρία Στυλιανού</h3>
+        <p>Στο οδοντιατρείο μας προσφέρουμε σύγχρονες και ανώδυνες θεραπείες με έμφαση στην ποιότητα και την αισθητική. Χρησιμοποιούμε τεχνολογία αιχμής για να εξασφαλίσουμε τα καλύτερα δυνατά αποτελέσματα.</p>
+        <p>Στόχος μας είναι κάθε ασθενής να φεύγει με ένα πιο υγιές και όμορφο χαμόγελο, σε ένα φιλικό και ασφαλές περιβάλλον.</p>
+        <div class="about-values">
+          <div class="about-value">
+            <div class="about-value-icon">&#x1F3AF;</div>
+            Ακρίβεια
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">&#x1F49A;</div>
+            Φροντίδα
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">&#x2728;</div>
+            Αισθητική
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">&#x1F91D;</div>
+            Εμπιστοσύνη
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Υπηρεσίες</h2>
+      <div class="divider"></div>
+      <p>Ολοκληρωμένες οδοντιατρικές υπηρεσίες με σύγχρονο εξοπλισμό</p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://glidewelldental.com/content/glidewell/en/company/blog/5-things-you-should-know-about-guided-implant-surgery/_jcr_content/root/container_main/container_hero/container_hero_inner/image.coreimg.jpeg/1668759503650/gl-2004313-01-1552x874.jpeg" alt="Εμφυτεύματα" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Χειρουργική</span>
+          <h3>Εμφυτεύματα (Guided Surgery)</h3>
+          <div class="service-text">Απόλυτη ακρίβεια με ψηφιακή καθοδήγηση. Τα εμφυτεύματα τοποθετούνται με τη βοήθεια τρισδιάστατης σχεδίασης για μέγιστη ασφάλεια και γρήγορη αποκατάσταση.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://www.roedentallab.com/hs-fs/hubfs/Product%20Images/ToothSupported/Tooth-Supported%20Surgical%20Guide%20Hero.png?name=Tooth-Supported+Surgical+Guide+Hero.png&width=2000" alt="Χειρουργικοί νάρθηκες" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Ψηφιακή Σχεδίαση</span>
+          <h3>Σχεδίαση χειρουργικών ναρθήκων</h3>
+          <div class="service-text">3D εξατομικευμένος σχεδιασμός χειρουργικών ναρθήκων με ψηφιακή τεχνολογία για ακριβή τοποθέτηση εμφυτευμάτων.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://www.yorkshiredentalsuite.co.uk/api/media/file/pordcelain-veneers-before-and-after03-600x589.webp" alt="Όψεις δοντιών" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Αισθητική</span>
+          <h3>Όψεις ρητίνης / πορσελάνης</h3>
+          <div class="service-text">Αισθητική αποκατάσταση χαμόγελου με υψηλής ποιότητας όψεις για φυσικό και εντυπωσιακό αποτέλεσμα.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://cdn.thecosmeticclinic.co.nz/2023/01/20124107/TCC_TeethWhitening_before-and-after2.jpg" alt="Λεύκανση δοντιών" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Αισθητική</span>
+          <h3>Λεύκανση</h3>
+          <div class="service-text">Άμεσο και ασφαλές αποτέλεσμα λεύκανσης δοντιών με επαγγελματικές τεχνικές για λαμπερό χαμόγελο.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://antonioudentalcare.com/wp-content/uploads/2022/04/dental-fillings.jpg" alt="Σφραγίσματα" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Συντηρητική</span>
+          <h3>Σφραγίσματα</h3>
+          <div class="service-text">Ανώδυνα και αισθητικά σφραγίσματα με σύγχρονα υλικά που αποκαθιστούν τη φυσική μορφή του δοντιού.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://media.istockphoto.com/id/1186645149/photo/mandibular-removable-prosthesis-all-on-2-system-supported-by-implants-with-ball-attachments.jpg?s=612x612&w=0&k=20&c=llMLrftLAtLUvyMwxiLJhZFFJ156zrgK72Pfu6lFpEY=" alt="Οδοντοστοιχίες" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Προσθετική</span>
+          <h3>Οδοντοστοιχίες</h3>
+          <div class="service-text">Μερικές και ολικές οδοντοστοιχίες υψηλής αισθητικής και λειτουργικότητας.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://www.oral-care.gr/sites/default/files/odontikes-stefanes.jpg" alt="Στεφάνες" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Προσθετική</span>
+          <h3>Στεφάνες</h3>
+          <div class="service-text">Μεταλλοκεραμικές και ολοκεραμικές στεφάνες για μέγιστη αντοχή και φυσικό αποτέλεσμα.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://image.made-in-china.com/2f0j00ynUiHMLFlIpN/Dental-Aligner-Storage-Box-Dental-Invisable-Braces-Box-Orthodontic-Braces-Box.jpg" alt="Νάρθηκες βρυγμού" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Προστασία</span>
+          <h3>Νάρθηκες βρυγμού</h3>
+          <div class="service-text">Εξατομικευμένοι νάρθηκες για προστασία δοντιών από βρυγμό και σύσφιξη.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="img-overflow">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2021/2/ZM/WZ/MB/12175883/pax-i-3d-smart-dental-imaging-system-1000x1000.jpg" alt="Ψηφιακή ακτινογραφία" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">Διάγνωση</span>
+          <h3>Ψηφιακή ακτινογραφία</h3>
+          <div class="service-text">Γρήγορη και ακριβής διάγνωση με χαμηλή ακτινοβολία για ασφαλή εξέταση.</div>
+          <div class="expand-hint">Πατήστε για περισσότερα</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPMENT -->
+<section id="equipment" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Εξοπλισμός Πού χρησιμοποιούμε</h2>
+      <div class="divider"></div>
+      <p>Τεχνολογία αιχμής για θεραπείες υψηλής ακρίβειας</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="equip-card">
+        <img src="https://selmedico.com/wp-content/uploads/2024/02/71ba12076f49dea0949290da9221406750420b7c-1.png" alt="MedIt i700 Scanner">
+        <div class="equip-card-body">
+          <span class="equip-label">3D Σάρωση</span>
+          <h3>MedIt i700 Scanner</h3>
+          <p>Τρισδιάστατη ψηφιακή αποτύπωση χωρίς καλούπια. Γρήγορο και άνετο για τον ασθενή, με ακρίβεια μικρομέτρου.</p>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.UANQm3xZExvAyy56g65RswHaFY?rs=1&pid=ImgDetMain&o=7&rm=3" alt="HULASER">
+        <div class="equip-card-body">
+          <span class="equip-label">Laser</span>
+          <h3>HULASER</h3>
+          <p>Laser για ανώδυνες θεραπείες μαλακών ιστών και ταχύτερη επούλωση χωρίς ράμματα.</p>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <img src="https://assets.henryschein.com/HS_UK_EN_Banner_HSEQGEP109-24_Hero-Banner-3x2.png" alt="3Shape E4 RED">
+        <div class="equip-card-body">
+          <span class="equip-label">Εργαστήριο</span>
+          <h3>3Shape E4 RED</h3>
+          <p>Εργαστηριακός σαρωτής υψηλής ακρίβειας για τέλειες αποκαταστάσεις και ψηφιακή ροή εργασίας.</p>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <img src="https://microlay.com/wp-content/uploads/2020/04/Microlay-Eve.png" alt="Microlay Eve 3D Printer">
+        <div class="equip-card-body">
+          <span class="equip-label">3D Εκτύπωση</span>
+          <h3>Microlay Eve 3D Printer</h3>
+          <p>3D εκτυπωτής για εξατομικευμένες οδοντιατρικές κατασκευές, νάρθηκες και χειρουργικούς οδηγούς.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Επικοινωνία</h2>
+      <div class="divider"></div>
+      <p>Κλείστε το ραντεβού σας σήμερα</p>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-info">
+        <h3>Οδοντιατρείο Μαρία Στυλιανού</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon">&#x1F4F1;</div>
+          <div class="contact-item-text">
+            <div class="contact-label">Τηλέφωνο</div>
+            <div class="contact-value"><a href="tel:2108140943" style="color:inherit;text-decoration:none">210 8140943</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">&#x1F4CD;</div>
+          <div class="contact-item-text">
+            <div class="contact-label">Τοποθεσία</div>
+            <div class="contact-value">Άνοιξη Αττικής</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">&#x2709;</div>
+          <div class="contact-item-text">
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:dentstylianou@gmail.com" style="color:inherit;text-decoration:none">dentstylianou@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div style="margin-top:28px">
+          <a class="btn" href="tel:2108140943" style="width:100%;justify-content:center">Κλείστε Ραντεβού</a>
+        </div>
+      </div>
+
+      <div class="contact-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12527.264157405282!2d23.8697!3d38.1072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a0a3f01d4ea3%3A0x400bd2ce2b985a0!2z4oaS4L2C4YC-4L2x!5e0!3m2!1sel!2sgr!4v1" allowfullscreen loading="lazy"></iframe>
+        <div class="contact-map-footer">
+          <a class="btn btn-outline" href="https://maps.app.goo.gl/8cEfsNBydHvez1kn8" target="_blank">Οδηγίες στο Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING CTA -->
+<a class="call-float" href="tel:2108140943">&#x1F4DE; Καλέστε μας</a>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 Οδοντιατρείο Μαρία Στυλιανού. Άνοιξη Αττικής.
+</footer>
+
+<script>
+function showPage(page, btn){
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active') });
+  document.getElementById(page).classList.add('active');
+  if(btn){
+    document.querySelectorAll('nav button').forEach(function(b){ b.classList.remove('active-nav') });
+    btn.classList.add('active-nav');
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.querySelectorAll('.service-card').forEach(function(card){
+  card.addEventListener('click', function(){
+    card.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
