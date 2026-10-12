@@ -812,6 +812,25 @@ footer a{color:var(--accent-light);text-decoration:none}
   .hero-content h1{font-size:28px}
   .hero-badges{gap:8px}
 }
+
+/* ΜΕΓΕΘΥΝΤΙΚΟΣ ΦΑΚΟΣ */
+#services .service-card img,
+#equipment .equip-card img {
+  cursor: crosshair;
+}
+
+.image-magnifier {
+  position: fixed;
+  width: 160px;
+  height: 160px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  pointer-events: none;
+  z-index: 9999;
+  background-repeat: no-repeat;
+  display: none;
+}
 </style>
 </head>
 
@@ -1183,7 +1202,15 @@ footer a{color:var(--accent-light);text-decoration:none}
       </div>
 
       <div class="contact-map">
-        <iframe src="https://maps.app.goo.gl/8cEfsNBydHvez1kn8" allowfullscreen loading="lazy"></iframe>
+<iframe
+  src="https://maps.google.com/maps?q=Οδοντιατρείο%20Μαρία%20Στυλιανού%2C%20Θησέως%202%2C%20Άνοιξη%20145%2069&output=embed"
+  width="100%"
+  height="400"
+  style="border:0; border-radius:12px;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
         <div class="contact-map-footer">
           <a class="btn btn-outline" href="https://maps.app.goo.gl/8cEfsNBydHvez1kn8" target="_blank">Οδηγίες στο Google Maps</a>
         </div>
@@ -1216,6 +1243,63 @@ document.querySelectorAll('.service-card').forEach(function(card){
     card.classList.toggle('active');
   });
 });
+
+(function () {
+  const magnifier = document.createElement('div');
+  magnifier.className = 'image-magnifier';
+  document.body.appendChild(magnifier);
+
+  const images = document.querySelectorAll(
+    '#services .service-card img, #equipment .equip-card img'
+  );
+
+  const size = 160;
+  const zoom = 2.5;
+
+   images.forEach(function (img) {
+  img.addEventListener('mouseenter', function () {
+    magnifier.style.display = 'block';
+  });
+
+  img.addEventListener('mousemove', function (e) {
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const naturalWidth = img.naturalWidth || rect.width;
+    const naturalHeight = img.naturalHeight || rect.height;
+
+    const scale = Math.max(
+      rect.width / naturalWidth,
+      rect.height / naturalHeight
+    );
+
+    const renderedWidth = naturalWidth * scale;
+    const renderedHeight = naturalHeight * scale;
+
+    const offsetX = (rect.width - renderedWidth) / 2;
+    const offsetY = (rect.height - renderedHeight) / 2;
+
+    magnifier.style.backgroundImage =
+      'url("' + (img.currentSrc || img.src) + '")';
+
+    magnifier.style.backgroundSize =
+      (renderedWidth * zoom) + 'px ' +
+      (renderedHeight * zoom) + 'px';
+
+    magnifier.style.backgroundPosition =
+      (size / 2 - (x - offsetX) * zoom) + 'px ' +
+      (size / 2 - (y - offsetY) * zoom) + 'px';
+
+    magnifier.style.left = (e.clientX - size / 2) + 'px';
+    magnifier.style.top = (e.clientY - size / 2) + 'px';
+  });
+
+  img.addEventListener('mouseleave', function () {
+    magnifier.style.display = 'none';
+  });
+});
+})();
 </script>
 
 </body>
